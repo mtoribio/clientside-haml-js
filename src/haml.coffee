@@ -208,7 +208,7 @@ haml =
 
       generator.outputBuffer.append(contents) if contents and contents.length > 0
 
-      if contents and (_.str || _).startsWith(contents, '[') and contents.match(/\]\s*$/)
+      if contents and contents.startsWith('[') and contents.match(/\]\s*$/)
         elementStack[indent] = htmlConditionalComment: true, eol: @_newline(tokeniser)
         generator.outputBuffer.append(">")
       else
@@ -327,7 +327,7 @@ haml =
           indentText = HamlRuntime.indentText(if identifier.length > 0 then indent + 1 else indent)
         else
           indentText = ''
-          contents = (_.str || _).trim(contents)
+          contents = contents.trim()
         generator.appendTextContents(indentText + contents, shouldInterpolate, currentParsePoint)
         generator.outputBuffer.append(@_newline(tokeniser))
 

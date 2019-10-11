@@ -40,7 +40,7 @@ class CoffeeCodeGenerator extends CodeGenerator
   appendCodeLine: (line, eol) ->
     @outputBuffer.flush()
     @outputBuffer.appendToOutputBuffer(@calcCodeIndent())
-    @outputBuffer.appendToOutputBuffer((_.str || _).trim(line))
+    @outputBuffer.appendToOutputBuffer(line.trim())
     @outputBuffer.appendToOutputBuffer(eol)
     @prevCodeIndent = @indent
 

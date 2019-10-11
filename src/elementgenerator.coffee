@@ -85,7 +85,7 @@ class ElementGenerator extends CodeGenerator
 
     @outputBuffer.appendToOutputBuffer(indentText + 'try {\n')
     @outputBuffer.appendToOutputBuffer(indentText + '    var value = eval("' +
-      (_.str || _).trim(expression).replace(/"/g, '\\"').replace(/\\n/g, '\\\\n') + '");\n')
+      expression.trim().replace(/"/g, '\\"').replace(/\\n/g, '\\\\n') + '");\n')
     @outputBuffer.appendToOutputBuffer(indentText + '    elm.appendChild( (typeof value === "string") ? document.createTextNode(value) : value);\n')
 
     if false

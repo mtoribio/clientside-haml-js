@@ -215,8 +215,8 @@ class Tokeniser
       @currentLineMatcher.lastIndex = @bufferIndex
       line = @currentLineMatcher.exec(@buffer)
       if line and line.index == @bufferIndex
-        contents = (_.str || _).rtrim(line[0])
-        if (_.str || _).endsWith(contents, '|')
+        contents = line[0].trimEnd()
+        if contents.endsWith('|')
           text += contents.substring(0, contents.length - 1)
           @advanceCharsInBuffer(contents.length - 1)
           @getNextToken()
@@ -236,8 +236,8 @@ class Tokeniser
       @currentLineMatcher.lastIndex = @bufferIndex
       line = @currentLineMatcher.exec(@buffer)
       if line and line.index == @bufferIndex
-        contents = (_.str || _).rtrim(line[0])
-        if (_.str || _).endsWith(contents, '|')
+        contents = line[0].trimEnd()
+        if contents.endsWith('|')
           text += contents.substring(0, contents.length - 1)
           @advanceCharsInBuffer(contents.length - 1)
         @getNextToken()
